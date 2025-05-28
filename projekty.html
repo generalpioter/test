@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudWeb | Projekty</title>
+  <style>
+    :root {
+      --gradient-start: #1e3c72;
+      --gradient-end: #2a5298;
+      --text-color: #ffffff;
+      --highlight: #00e0ff;
+      --card-bg: rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: var(--text-color);
+      min-height: 100vh;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: var(--highlight);
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      color: var(--highlight);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      color: var(--highlight);
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .project-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--highlight);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .project-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Moje Projekty</h1>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="project-title">System Dowodów RP (Roblox)</div>
+      <div class="project-desc">Realistyczny system ID i prawa jazdy, ze zdjęciem, GUI i bazą danych.</div>
+      <a class="project-link" href="#">Zobacz więcej</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Strona Internetowa dla serwer (RedM)</div>
+      <div class="project-desc">Nowoczesna strona www</div>
+      <a class="project-link" href="http://node1.kinguin.cloud:25766/">Zobacz więcej</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Strona Portfolio</div>
+      <div class="project-desc">Lekka, animowana strona portfolio oparta o czysty HTML/CSS.</div>
+      <a class="project-link" href="cwel.html">Zobacz więcej</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Serwer RedM [WestMove]</div>
+      <div class="project-desc">Polski  serwer na platformie RedM WL-OFF</div>
+      <a class="project-link" href="https://discord.gg/qcShqWE7P2">Dołącz</a>
+    </div>
+
+  </div>
+</body>
+</html>

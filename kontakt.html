@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | CloudWeb</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: rgba(0,0,0,0.4);
+      padding: 2rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 500px;
+    }
+
+ input, textarea {
+    width: 100%;
+    padding: 0.4rem 0.6rem; /* mniejsze odstępy wewnętrzne */
+    margin: 0.3rem 0;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 60px; /* mniejsze pole tekstowe */
+    max-height: 120px;
+  }
+
+  button {
+    background: #00e0ff;
+    color: #000;
+    padding: 0.5rem 1rem; /* zmniejszony button */
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+  }
+  
+
+  button:hover {
+    background: #00b6cc;
+  }
+  </style>
+</head>
+<body>
+  <h1>Kontakt z CloudWeb</h1>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Twoje imię/nick" required />
+    <input type="email" id="email" placeholder="Twój e-mail" required />
+    <textarea id="message" rows="5" placeholder="Wiadomość..." required></textarea>
+    <button type="submit">Wyślij wiadomość</button>
+  </form>
+  <h2>Po wypelnieniu skontaktujemy sie droga mailowa</h2>
+  <script>
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      const webhookURL = "https://discord.com/api/webhooks/1376602433312133200/L2dz6GqasVUv-WaegKY87UbyX5YaDr39SmhRiKGqhAj697XJN2CCmMMwS2ShfehSzou0";
+
+      const payload = {
+        content: `📬 **Nowa wiadomość ze strony CloudWeb**\n**Imię/Nick:** ${name}\n**E-mail:** ${email}\n**Wiadomość:**\n${message}`
+      };
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          alert("✅ Wiadomość została wysłana!");
+          form.reset();
+        } else {
+          alert("❌ Coś poszło nie tak. Spróbuj ponownie.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("❌ Błąd podczas wysyłania wiadomości.");
+      }
+    });
+  </script>
+</body>
+</html>

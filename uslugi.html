@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudWeb | Usługi</title>
+  <style>
+    :root {
+      --gradient-start: #1e3c72;
+      --gradient-end: #2a5298;
+      --text-color: #ffffff;
+      --highlight: #00e0ff;
+      --card-bg: rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: var(--text-color);
+      min-height: 100vh;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: var(--highlight);
+      margin: 1rem 0 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--highlight);
+    }
+
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--highlight);
+    }
+
+    .service-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .order-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--highlight);
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .order-button:hover {
+      background-color: #00bbdd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="cwel.html">Strona Główna</a>
+      <a href="projekty.html">Projekty</a>
+      <a href="uslugi.html">Usługi</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <h1>Usługi</h1>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <div class="service-title">Tworzenie stron WWW</div>
+      <div class="service-desc">Responsywne, nowoczesne strony oparte o HTML, CSS, JS i/lub frameworki jak React.</div>
+      <a href="https://discord.gg/twójl-link" class="order-button">Zamów usługę</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎮</div>
+      <div class="service-title">Systemy RP</div>
+      <div class="service-desc">Tworzenie oraz dostosowywanie systemów RP dla Roblox, FiveM i RedM z uwzględnieniem realizmu i wydajności.</div>
+      <a href="https://discord.gg/twójl-link" class="order-button">Zamów usługę</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <div class="service-title">Integracje i Webhooki</div>
+      <div class="service-desc">Łączenie systemów z Discordem, webhooki logów, powiadomień oraz zewnętrzne API.</div>
+      <a href="https://discord.gg/twójl-link" class="order-button">Zamów usługę</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title">Frontend aplikacji</div>
+      <div class="service-desc">Nowoczesne UI/UX dla aplikacji webowych i mobilnych – od koncepcji po kod.</div>
+      <a href="https://discord.gg/twójl-link" class="order-button">Zamów usługę</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <div class="service-title">Panele administracyjne</div>
+      <div class="service-desc">Projektowanie i implementacja paneli zarządzania serwerami, użytkownikami i danymi.</div>
+      <a href="https://discord.gg/twójl-link" class="order-button">Zamów usługę</a>
+    </div>
+  </div>
+</body>
+</html>

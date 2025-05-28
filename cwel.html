@@ -129,10 +129,19 @@
   font-weight: bold;
   color: var(--text-color);
 }
-
+  #tlo-czasteczki {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
+  <div id="tlo-czasteczki"></div>
   <header>
     <h1>CloudWeb</h1>
     <p>Nowoczesne spojrzenie na świat</p>
@@ -192,6 +201,44 @@
     <span>JS</span>
   </div>
 </div>
+<script>
+  tsParticles.load("tlo-czasteczki", {
+    fullScreen: { enable: false },
+    background: { color: "#0f2027" },
+    particles: {
+      number: { value: 70 },
+      color: { value: "#00e0ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      move: {
+        enable: true,
+        speed: 1.5,
+        direction: "none",
+        random: false,
+        straight: false,
+        outModes: "out"
+      },
+      links: {
+        enable: true,
+        distance: 150,
+        color: "#00e0ff",
+        opacity: 0.4,
+        width: 1
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { quantity: 4 }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
